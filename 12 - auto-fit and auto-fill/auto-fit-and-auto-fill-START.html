@@ -14,31 +14,76 @@
     <div class="item item2">Item 02</div>
     <div class="item item3">Item 03</div>
     <div class="item item4">Item 04</div>
-    <div class="item item5">Item 05</div>
-    <div class="item item6">Item 06</div>
-    <div class="item item7">Item 07</div>
-    <div class="item item8">Item 08</div>
-    <div class="item item9">Item 09</div>
-    <div class="item item10">Item 10</div>
-    <div class="item item11">Item 11</div>
-    <div class="item item12">Item 12</div>
-    <div class="item item13">Item 13</div>
-    <div class="item item14">Item 14</div>
-    <div class="item item15">Item 15</div>
-    <div class="item item16">Item 16</div>
-    <div class="item item17">Item 17</div>
-    <div class="item item18">Item 18</div>
-    <div class="item item19">Item 19</div>
-    <div class="item item20">Item 20</div>
+  </div>
+  <div class="primary">
+  <h3>Primary</h3>
+ <button data-color-value="rgb(255,0,0)">Red</button>
+<button data-color-value="rgb(0,255,0)">Green</button>
+<button data-color-value="rgb(0,0,255)">Blue</button>
+</div>
+<div class="secondary">
+<h3>Secondary</h3>
+
+<button data-color-value="red">Red</button>
+<button data-color-value="green">Green</button>
+<button data-color-value="blue">Blue</button>
   </div>
 
+
   <style>
-    .container {
+  body {
+  --primary: #fff;
+  --secondary: #000;
+}
+
+.container {
       display: grid;
       grid-gap: 20px;
-      border: 10px solid var(--yellow);
+      /* border: 10px solid var(--yellow); */
+      grid-template-columns: repeat(5, 1fr)
     }
-  </style>
+
+input {
+  margin: 10px;
+}
+.item {
+  animation-duration: 1s;
+  animation-name: bgColor;
+  animation-iteration-count: infinite;
+  color: var(--yellow);
+}
+
+.item1 {
+  animation-delay: 0s;
+}
+.item2 {
+  animation-delay: .25s;
+}
+.item3 {
+  animation-delay: .5s;
+}
+.item4 {
+  animation-delay: .75s;
+}
+@keyframes bgColor {
+  from {
+    background-color: var(--primary);
+  }
+
+  to {
+    background-color: var(--secondary);
+  }
+}</style>
+
+<script>
+  const body = document.querySelector('body');
+  const primaryRed = document.querySelector('.primary button[data-color-value="red"]');
+
+  primaryRed.addEventListener('click', () => {
+    body.style.setProperty('--primary', "rgb(255,0,0)");
+  })
+  
+</script>
 </body>
 
 </html>
